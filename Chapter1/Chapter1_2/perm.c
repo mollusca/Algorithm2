@@ -48,22 +48,23 @@ void Print(int low, int high, char *data) {
 }
 
 void perm(char *a, int k, int n) {
-	int m = 0;
+	int m;
 	
+	/* 종료조건 */
 	if (n <= k) {
 		Print(k, n, a);
 		return;
 	}
+
+	/* 정렬->순열->섞인것 다시정렬 */
 	QuickSort(k, n, a);
 	perm(a, k + 1, n);
 	QuickSort(k + 1, n, a);
 
-	for (; m > k; m++) {
-		if (a[k] < a[m]) {
-			Swap(&a[k], &a[m]);
-			perm(a, k + 1, n);
-			QuickSort(a, k + 1, n);
-		}
+	for (m = n; m >= k && a[k] < a[m]; m++) {
+		Swap(&a[k], &a[m]);
+		perm(a, k + 1, n);
+		QuickSort(k + 1, n, a);
 	}
 }
 
@@ -71,7 +72,7 @@ int main() {
 	char *arr = (char *)malloc(sizeof(char) * 100);
 
 	scanf("%s", arr);
-	perm(arr, 0, strlen(arr) + 1);
+	perm(arr, 0, strlen(arr) - 1);
 
 	free(arr);
 	return 0;

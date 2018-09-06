@@ -1,8 +1,4 @@
 ﻿  perm.c
-a:\algorithm2\algorithm2\chapter1\chapter1_2\perm.c(65): warning C4047: '함수': 'int'의 간접 참조 수준이 'char *'과(와) 다릅니다.
-a:\algorithm2\algorithm2\chapter1\chapter1_2\perm.c(65): warning C4024: 'QuickSort': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
-a:\algorithm2\algorithm2\chapter1\chapter1_2\perm.c(65): warning C4047: '함수': 'char *'의 간접 참조 수준이 'int'과(와) 다릅니다.
-a:\algorithm2\algorithm2\chapter1\chapter1_2\perm.c(65): warning C4024: 'QuickSort': 형식 및 실제 매개 변수 3의 형식이 서로 다릅니다.
-a:\algorithm2\algorithm2\chapter1\chapter1_2\perm.c(73): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+a:\algorithm2\algorithm2\chapter1\chapter1_2\perm.c(74): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
   Chapter1_2.vcxproj -> A:\Algorithm2\Algorithm2\Chapter1\Debug\Chapter1_2.exe
