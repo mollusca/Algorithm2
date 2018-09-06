@@ -1,0 +1,2 @@
+start : 60 = max :60
+escape success!!

@@ -1,0 +1,38 @@
+let next job be (x,y,z);
+root1 = find(y);
+empty_slot = empty[root1];
+schedule[empty_slot] = x;
+if (empty_slot == 1) temp = num_jobs;
+     else temp = empty_slot -1;
+root2 = find(temp);
+if (size[root1] <= size[root2] )
+       { size[root1] = size[root1]+ size[root2];
+         size[root2] = root1;
+         empty_slot[root1] = empty_slot[root2];}
+else {  size[root2] = size[root1]+ size[root2];
+        size[root1] = root2; }
+
+
+
+
+20 
+1 5 45 
+2 20 40 
+3 13 38 
+4 11 35 
+5 9 33 
+6 1 30 
+7 2 28 
+8 4 25 
+9 5 20 
+10 16 19 
+11 14 17 
+12 8 15 
+13 3 10 
+14 1 9 
+15 12 8 
+16 10 7 
+17 13 4 
+18 18 3 
+19 8 2 
+20 6 1  
