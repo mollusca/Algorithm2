@@ -1,1 +1,1 @@
-RANDMIZED 하는데 문제있음.
+180906. Chapter1/ QUICKSORT) RANDMIZED 하는데 문제있음.
