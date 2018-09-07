@@ -1,4 +1,4 @@
 ﻿  perm.c
-a:\algorithm2\algorithm2\chapter1\chapter1_2\perm.c(74): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+a:\algorithm2\algorithm2\chapter1\chapter1_2\perm.c(82): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1270): note: 'scanf' 선언을 참조하십시오.
   Chapter1_2.vcxproj -> A:\Algorithm2\Algorithm2\Chapter1\Debug\Chapter1_2.exe

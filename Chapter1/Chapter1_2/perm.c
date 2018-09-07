@@ -1,8 +1,9 @@
-/* Recursive Algorithm (Permutation on alphabet) + Quick Sort */
+/* Recursive Algorithm (Permutation on alphabet) + Quick Sort + Randomized Pivot */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 void Swap(char *a, char *b) {
 	char temp;
@@ -12,7 +13,7 @@ void Swap(char *a, char *b) {
 	*b = temp;
 }
 
-void Partition(int low, int high, int pivotpoint, char *data) {
+void Partition(int low, int high, int *pivotpoint, char *data) {
 	int i, j;
 	char pivotitem;
 
@@ -25,15 +26,21 @@ void Partition(int low, int high, int pivotpoint, char *data) {
 			Swap(&data[i], &data[j]);
 		}
 	}
-	pivotpoint = j;
-	Swap(&data[low], &data[pivotpoint]);
+	*pivotpoint = j;
+	Swap(&data[low], &data[*pivotpoint]);
 }
 
 void QuickSort(int low, int high, char *data) {
 	int pivotpoint = low;
 
 	if (low < high) {
-		Partition(low, high, pivotpoint, data);
+		int i = 0;
+		srand((unsigned)time(NULL));
+
+		i = rand() % (high - low + 1) + low;
+		Swap(&data[i], &data[low]);
+
+		Partition(low, high, &pivotpoint, data);
 		QuickSort(low, pivotpoint - 1, data);
 		QuickSort(pivotpoint + 1, high, data);
 	}
@@ -71,7 +78,9 @@ void perm(char *a, int k, int n) {
 int main() {
 	char *arr = (char *)malloc(sizeof(char) * 100);
 
+	printf("Permutation: ");
 	scanf("%s", arr);
+	printf("***************\n");
 	perm(arr, 0, strlen(arr) - 1);
 
 	free(arr);

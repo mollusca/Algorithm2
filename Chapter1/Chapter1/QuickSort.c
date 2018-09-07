@@ -13,49 +13,6 @@ void Swap(int *a, int *b) {
 	*b = temp;
 }
 
-void Partition(int low, int high, int pivotpoint, int *data) {
-	int i, j;
-	int pivotitem;
-//	srand((unsigned)time(NULL));
-
-	j = low;
-	pivotitem = data[low];
-
-//	pivotpoint = rand() % (high - low + 1) + low;
-//	Swap(&data[*pivotpoint], &data[low]);
-//	Partition(low, high, &pivotpoint, data);
-
-	for (i = low + 1; i <= high; i++) {
-		if (data[i] < pivotitem) {
-			j++;
-			Swap(&data[i], &data[j]);
-		}
-	}
-	pivotpoint = j;
-	Swap(&data[low], &data[pivotpoint]);
-}
-/*
-void rand_partition(int low, int high, int pivotpoint, int *data) {
-	int i;
-	srand((unsigned)time(NULL));
-
-	i = rand() % (high - low + 1) + low;
-	printf("%d\n", i);
-
-	Swap(&data[low], &data[i]);
-	Partition(low, high, pivotpoint, data);
-}
-*/
-void QuickSort(int low, int high, int *data) {
-	int pivotpoint = low;
-
-	if (low < high) {
-		Partition(low, high, pivotpoint, data);
-		QuickSort(low, pivotpoint - 1, data);
-		QuickSort(pivotpoint + 1, high, data);
-	}
-}
-
 void Print(int low, int high, int *data) {
 	int i;
 
@@ -64,10 +21,51 @@ void Print(int low, int high, int *data) {
 	printf("\n");
 }
 
+void Partition(int low, int high, int *pivotpoint, int *data) {
+	int i, j;
+	int pivotitem;
+
+	j = low;
+	pivotitem = data[low];
+
+	for (i = low + 1; i <= high; i++) {
+		if (data[i] < pivotitem) {
+			j++;
+			Swap(&data[i], &data[j]);
+//			Print(low, high, data);
+		}
+	}
+	Swap(&data[j], &data[*pivotpoint]);
+	*pivotpoint = j;
+}
+
+void QuickSort(int low, int high, int *data) {
+	// 피벗포인트는 랜덤해도 여전히 첫번째 
+	int pivotpoint = low;
+
+	if (low < high) {
+		int i = 0;
+		srand((unsigned)time(NULL));
+
+		i = rand() % (high - low + 1) + low;
+//		printf("i : %d\n", i);
+		// 랜덤한 피벗과 첫번째 데이터를 Swap
+		Swap(&data[i], &data[low]);
+
+		// pivotpoint 값을 유지시켜줘야 하므로 주소값으로 전달
+		Partition(low, high, &pivotpoint, data);
+		QuickSort(low, pivotpoint - 1, data);
+		QuickSort(pivotpoint + 1, high, data);
+	}
+}
+
 int main() {
 	int arr[] = { 15, 22, 13, 27, 12, 10, 20, 25 };
 
+	printf("Sorting 전\n");
+	Print(0, 7, arr);
 	QuickSort(0, 7, arr);
+	printf("Sorting 후\n");
 	Print(0, 7, arr);
 
 	return 0;
