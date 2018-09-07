@@ -15,5 +15,8 @@
 4. From the aligned "left+1" value, the right becomes greater than or equal to the left, and if the right value is less than the left value, swaps the value.
 5. After the left+1, call the Perm function to resolve it recursively.
 
+/* Randomized Idea */
+Set the pivotpoint randomly, Swap randomized pivotitem and the left value of the data.
+
 /* Error */
 180906. Chapter1/ QUICKSORT) RANDMIZED 하는데 문제있음. -> pivotpoint를 포인터형태로 전달해줘서 해결함.
