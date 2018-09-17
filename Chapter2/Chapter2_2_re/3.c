@@ -23,7 +23,6 @@ frontPointer* vertex;
 
 void addEdge(int from, int to, int weight) {
 	nodePointer temp = (nodePointer)malloc(sizeof(Node));
-	nodePointer find = vertex[from]->next;
 
 	temp->num = to;
 	temp->weight = weight;
@@ -44,7 +43,7 @@ void printList() {
 		if(i != N)
 			printf("%d : ", i);
 		while (Print) {
-			printf("(%d, %d) ", Print->num, Print->weight);
+			printf("(%2d, %2d) ", Print->num, Print->weight);
 			Print = Print->node_next;
 		}
 		printf("\n");
