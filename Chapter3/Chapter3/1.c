@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define WHITE 0
+#define GRAY 1
+#define BLACK 2
+
 // N : ³ëµå °¹¼ö, M : ¿§Áö °¹¼ö
-int N, M; 
+int N, M;
+
+int color[100]; // ¹æ¹® ¿©ºÎ
+int p[100]; // ºÎ¸ð
 
 typedef struct node* nodePointer;
 typedef struct node {
@@ -32,44 +39,78 @@ void addEdge(int from, int to, int weight) {
 		vertex[from]->next = temp;
 	else
 		vertex[from]->last->node_next = temp;
-	
+
 	vertex[from]->last = temp;
 }
+
 void printList() {
 	int i;
 
 	for (i = 1; i <= N; i++) {
 		nodePointer Print = vertex[i]->next;
-		
-		printf("%d : ", i);
+
+		printf("%2d : ", i);
 		while (Print) {
-			printf("(%2d, %2d) ", Print->num, Print->weight);
+			printf("(%d) ", Print->num);
+			//			printf("(%2d, %2d) ", Print->num, Print->weight);
 			Print = Print->node_next;
 		}
 		printf("\n");
 	}
 }
 
+void DFS_visit(int u) {
+	color[u] = GRAY;
+	nodePointer temp = vertex[u]->next;
+
+	while (temp) {
+		if (color[temp->num] == WHITE) {
+			p[temp->num] = u;
+			DFS_visit(temp->num);
+		}
+		temp = temp->node_next;
+	}
+	color[u] = BLACK;
+}
+
+void DFS() {
+	int u;
+	for (u = 1; u <= N; u++) {
+		color[u] = WHITE;
+		p[u] = -1; // NIL
+	}
+	for (u = 1; u <= N; u++)
+		if (color[u] == WHITE)
+			DFS_visit(u);
+}
+
 int main() {
-	int i, f, t, w;
+	int i, f, t;
 	FILE *fp = fopen("input.txt", "r");
 
 	fscanf(fp, "%d %d", &N, &M);
 
 	vertex = (frontPointer*)malloc(sizeof(Front*) * (N + 1));
 
-	for (i = 0; i <= N; i++)
-		vertex[i] = (frontPointer)malloc(sizeof(Front));
 	for (i = 1; i <= N; i++) {
+		vertex[i] = (frontPointer)malloc(sizeof(Front));
 		vertex[i]->last = NULL;
 		vertex[i]->next = NULL;
 	}
 	for (i = 0; i < M; i++) {
-		fscanf(fp, "%d %d %d", &f, &t, &w);
-		addEdge(f, t, w);
+		fscanf(fp, "%d %d", &f, &t);
+		addEdge(f, t, 0);
 	}
 
+	DFS();
+
 	printList();
+
+	// DFS Ãâ·Â
+	printf("\ndfs p[i] : ");
+	for (i = 1; i <= N; i++)
+		printf("%d ", p[i]);
+	printf("\n");
 
 	return 0;
 }
