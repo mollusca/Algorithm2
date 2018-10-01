@@ -29,6 +29,8 @@ typedef struct front {
 	int weight;
 } Front;
 
+/* 전역변수 시작 */
+
 frontPointer* vertex;
 nodePointer head = NULL;
 // N : 노드 갯수
@@ -36,13 +38,15 @@ int N;
 
 int color[1000]; // 방문 여부
 int p[1000]; // 부모
-int bottom[1000], height[1000], weight[1000];
+int bottom[1000], height[1000], weight[1000]; // 밑면, 높이, 무게
 
 int topo[1000], cnt_topo;
 int before[1000];
 int dp[1000];
 
-int blockNum;
+int blockNum; // 블럭 갯수
+
+/* 전역변수 끝 */
 
 void addEdge(int from, int to, int weight_) {
 	nodePointer temp = (nodePointer)malloc(sizeof(Node));
@@ -57,13 +61,13 @@ void addEdge(int from, int to, int weight_) {
 
 	if (from == 0) {
 		temp->height = 0;
-		temp->size = 0;
-		temp->price = 0;
+		temp->size = 99999;
+		temp->weight_top = 99999;
 	}
 	if (from == N + 1) {
 		temp->height = 0;
 		temp->size = 0;
-		temp->price = 0;
+		temp->weight_top = 0;
 	}
 
 	if (vertex[from]->next == NULL)
@@ -83,7 +87,7 @@ void printList() {
 		printf("%d : ", i);
 
 		while (Print) {
-			printf("(%d, %d) ", Print->num, Print->weight_top);
+			printf("(%d, %d) ", Print->num, Print->price);
 			Print = Print->node_next;
 		}
 		printf("\n");
@@ -108,11 +112,12 @@ void PrintLinked() {
 	nodePointer find = head;
 
 	while (find) {
-		printf("%d ", find->num);
+		printf("%d\n ", find->num);
 		find = find->node_next;
 	}
 	printf("\n");
 }
+
 
 void doTopo() {
 	nodePointer find = head;
@@ -122,6 +127,7 @@ void doTopo() {
 		find = find->node_next;
 	}
 }
+
 
 void DFS_visit(int u) {
 	color[u] = GRAY;
@@ -153,13 +159,10 @@ void DFS() {
 void topologiSort() {
 	int i, j;
 	
-	for (i = 1; i <= N; i++) {
-		for (j = 1; j <= N; j++) {
-			if (bottom[i] > bottom[j] && weight[i] > weight[j]) {
+	for (i = 1; i <= N; i++) 
+		for (j = 1; j <= N; j++) 
+			if (bottom[i] > bottom[j] && weight[i] > weight[j])
 				addEdge(i, j, height[j]);
-			}
-		}
-	}
 }
 
 int main() {
@@ -174,11 +177,12 @@ int main() {
 	for (i = 0; i <= N + 1; i++)
 		vertex[i] = (frontPointer)malloc(sizeof(Front));
 
+/*
 	dp[0] = 0;
-	for (i = 1; i <= N + 1; i++)
-	{
+	for (i = 1; i <= N + 1; i++) {
 		dp[i] = -987654321;
 	}
+*/
 
 	for (i = 1; i <= N + 1; i++)
 		fscanf(fp, "%d %d %d", &bottom[i], &height[i], &weight[i]);
@@ -189,10 +193,7 @@ int main() {
 
 		vertex[i]->size = bottom[i];
 		vertex[i]->height = height[i];
-		vertex[i]->weight = weight[i];
-		
-		color[i] = WHITE;
-		p[i] = -1;
+		vertex[i]->weight = weight[i];	
 	}
 	vertex[0]->size = 99999;
 	vertex[0]->height = 0;
@@ -206,15 +207,15 @@ int main() {
 	}
 
 	DFS();
-	PrintLinked();
-	printf("\n");
-//	printList();
+//	PrintLinked();
+//	printf("\n");
 
 	doTopo();
+//	printList();
+
 
 	for (i = 0; i <= N; i++) {
 		frontPointer left = vertex[topo[i]];
-
 		for (j = i + 1; j <= N + 1; j++) {
 			frontPointer right = vertex[topo[j]];
 
@@ -227,6 +228,7 @@ int main() {
 		}
 	}
 
+
 	x = N + 1;
 
 	while (p[x] != 0) {
@@ -235,10 +237,12 @@ int main() {
 	}
 	x = N + 1;
 
-	fprintf(fout, "\n블럭갯수 : %d \n", blockNum);
+	printf("\n%d\n", blockNum);
+//	fprintf(fout, "블럭갯수 : %d \n", blockNum);
 
 	while (p[x] != 0) {
-		fprintf(fout, "%d\n", p[x]);
+		printf("%d\n", p[x]);
+//		fprintf(fout, "%d\n", p[x]);
 		x = p[x];
 	}
 
@@ -250,6 +254,8 @@ int main() {
 
 	printf("%d \n", dp[N + 1]);
 */
+
+//	printList();
 	fclose(fp);
 	fclose(fout);
 

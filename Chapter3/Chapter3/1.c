@@ -52,7 +52,7 @@ void printList() {
 		printf("%2d : ", i);
 		while (Print) {
 			printf("(%d) ", Print->num);
-			//			printf("(%2d, %2d) ", Print->num, Print->weight);
+			//		printf("(%2d, %2d) ", Print->num, Print->weight);
 			Print = Print->node_next;
 		}
 		printf("\n");

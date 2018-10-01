@@ -120,7 +120,7 @@ int main() {
 	for (i = 1; i <= N; i++) {
 		vertex[i] = (frontPointer)malloc(sizeof(Front));
 		vertex[i]->last = NULL;
-		vertex[i]->next = NULL;
+		vertex[i]->next =NULL;
 	}
 	for (i = 0; i < M; i++) {
 		fscanf(fp, "%d %d", &f, &t);
