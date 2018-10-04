@@ -271,7 +271,7 @@ int main() {
 	int i, from, to, capa;
 	
 
-	FILE *fin = fopen("input.txt", "r");
+	FILE *fin = fopen("input2.txt", "r");
 	FILE *fout = fopen("output.txt", "w");
 
 	fscanf(fin, "%d %d", &N, &M);
@@ -300,14 +300,14 @@ int main() {
 	
 	BFS(&s1, 0);
 
-	printf("bfs[i] : ");
+	printf("\nbfs[i] : ");
 	for (i = 0; i <= N + 1; i++)
 		printf("%d ", p[i]);
 	printf("\n");
 
 	findFlow(&s1);
 
-	printf("Maxflow : %d\n", maxFlow);
+	printf("\nMaxflow : %d\n", maxFlow);
 
 	fclose(fin);
 	fclose(fout);
