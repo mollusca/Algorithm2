@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MaxFlow", "MaxFlow\MaxFlow.vcxproj", "{E0033F32-9177-4BE9-8D14-6A01045E498F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BellmanFord", "BellmanFord\BellmanFord.vcxproj", "{6933D831-0BF2-4570-A583-883854C7CD96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{E0033F32-9177-4BE9-8D14-6A01045E498F}.Release|x64.Build.0 = Release|x64
 		{E0033F32-9177-4BE9-8D14-6A01045E498F}.Release|x86.ActiveCfg = Release|Win32
 		{E0033F32-9177-4BE9-8D14-6A01045E498F}.Release|x86.Build.0 = Release|Win32
+		{6933D831-0BF2-4570-A583-883854C7CD96}.Debug|x64.ActiveCfg = Debug|x64
+		{6933D831-0BF2-4570-A583-883854C7CD96}.Debug|x64.Build.0 = Debug|x64
+		{6933D831-0BF2-4570-A583-883854C7CD96}.Debug|x86.ActiveCfg = Debug|Win32
+		{6933D831-0BF2-4570-A583-883854C7CD96}.Debug|x86.Build.0 = Debug|Win32
+		{6933D831-0BF2-4570-A583-883854C7CD96}.Release|x64.ActiveCfg = Release|x64
+		{6933D831-0BF2-4570-A583-883854C7CD96}.Release|x64.Build.0 = Release|x64
+		{6933D831-0BF2-4570-A583-883854C7CD96}.Release|x86.ActiveCfg = Release|Win32
+		{6933D831-0BF2-4570-A583-883854C7CD96}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
