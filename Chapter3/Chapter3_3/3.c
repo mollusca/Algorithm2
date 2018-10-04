@@ -167,7 +167,7 @@ void topologiSort() {
 
 int main() {
 	int i, j, x;
-	FILE *fp = fopen("input3.txt", "r");
+	FILE *fp = fopen("input.txt", "r");
 	FILE *fout = fopen("output.txt", "w");
 
 	fscanf(fp, "%d", &N);
@@ -203,7 +203,7 @@ int main() {
 
 	for (i = 1; i <= N; i++) {
 		addEdge(0, i, height[i]);
-		addEdge(i, N + 1, 0);
+		addEdge(i, N + 1, height[i]);
 	}
 
 	DFS();
@@ -211,7 +211,7 @@ int main() {
 //	printf("\n");
 
 	doTopo();
-//	printList();
+	printList();
 
 
 	for (i = 0; i <= N; i++) {
