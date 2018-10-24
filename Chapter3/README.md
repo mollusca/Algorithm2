@@ -109,3 +109,5 @@ _input 형식_
 |노드개수(N)|||
 |---|---|---|
 |밑변|높이|무게|  
+
+![조건](https://github.com/mollusca/Algorithm2/blob/master/IMG/Highest_top_conditions.PNG)
