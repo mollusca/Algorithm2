@@ -30,8 +30,10 @@ temp의 목적지를 parameter로 DFS_visit함수를 재귀적으로 수행.
 
 ## Chapter3-2 > Topological Sort
 _input 형식_  
-노드개수(N) 엣지갯수(M)  
-출발지 목적지 ...  
+
+|노드개수(N)|엣지갯수(M)|  
+|----|----|
+|출발지|목적지|  
 
 /* DFS + Topological Sort */  
 ** Idea **  
