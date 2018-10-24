@@ -3,7 +3,7 @@
 _input 형식_  
 | 노드개수(N) | 엣지갯수(M) |
 | ----- | ----- |
-| 출발지 | 목적지 |
+| 출발지 | 목적지 | 
 
 /* ADJList + DFS */  
 DFS(Depth_First_Search) idea  
