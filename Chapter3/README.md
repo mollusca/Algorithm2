@@ -16,6 +16,18 @@ color[100] (방문여부 확인) 배열과 p[100] (부모 확인) 배열을 글�
 1. __DFS__
  > 1-1. 1부터 노드개수까지 color를 WHITE로, 부모를 -1로 초기화 해준다.  
  > 1-2. 1부터 노드개수까지 __DFS_visit__ 함수를 수행한다.  
+```
+void DFS() {
+	int u;
+	for (u = 1; u <= N; u++) {
+		color[u] = WHITE;
+		p[u] = -1; // NIL
+	}
+	for (u = 1; u <= N; u++)
+		if (color[u] == WHITE)
+			DFS_visit(u);
+}
+```
 2. __DFS_visit__  
  > 2-1. color를 GRAY로 둠.  
  > 2-2. 임시 노드포인터 temp를 vertex[i]의 다음으로 연결해준다.  
@@ -24,6 +36,23 @@ color[100] (방문여부 확인) 배열과 p[100] (부모 확인) 배열을 글�
   >> 2-3-2. temp를 다음 노드로 이동시킴.  
  
  > 2-4. color를 BLACK으로 둔다.
+```
+void DFS_visit(int u) {
+	color[u] = GRAY;
+	nodePointer temp = vertex[u]->next;
+
+	while (temp) {
+		if (color[temp->num] == WHITE) {
+			p[temp->num] = u;
+			DFS_visit(temp->num);
+		}
+		temp = temp->node_next;
+	}
+	color[u] = BLACK;
+
+	insertLink(u);
+}
+```
 3. DFS의 결과는 p배열에 저장됨.
 
 
@@ -44,9 +73,35 @@ Insert함수는 키값을 가진 임시노드를 헤드에 추가해주는 함�
  > 1-1. data를 임시노드의 출발점으로, 다음은 NULL로 초기화 해준다.
  > 1-2. 헤드가 없으면 바로 head에 temp를 연결해주고,  
  > 1-3. 헤드가 있으면 temp의 다음노드에 head를 연결해 준뒤, head에 temp를 연결해준다.  
+```
+void insert(int data) {
+	nodePointer temp = (nodePointer)malloc(sizeof(Node));
+
+	temp->num = data;
+	temp->node_next = NULL;
+
+	if (head == NULL)
+		head = temp;
+	else {
+		temp->node_next = head;
+		head = temp;
+	}
+}
+```
 2. __PrintLinked__  
  > 2-1. find를 head로 연결.  
  > 2-2. find를 차례대로 출력.  
+```
+void PrintLinked() {
+	nodePointer find = head;
+
+	while (find) {
+		printf("%d ", find->num);
+		find = find->node_next;
+	}
+	printf("\n");
+}
+```
 
 ## Chapter3-3 > To Build The Tallest Tower
 _input 형식_  
