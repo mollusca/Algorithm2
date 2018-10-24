@@ -10,3 +10,8 @@ __G__ 의 각 엣지 가중치를 Capacity라고 하며, (u,v)의 Capacity를 __
 - __Flow conservation__ : 각 노드에서 유량은 새로 더해지거나 감소되지 않는다.
 
 만약, __c(u,v) = 10__ 이고, __c(v,u) = 4__ 라면 ..  
+![1](https://github.com/mollusca/Algorithm2/blob/master/IMG/Maxflow_img/1.PNG)  
+
+__u__ 에서 __v__ 로 유량이 8이면..  
+![2](https://github.com/mollusca/Algorithm2/blob/master/IMG/Maxflow_img/2.png)
+
