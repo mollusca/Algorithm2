@@ -6,7 +6,7 @@ _input 형식_
 | ----- | ----- |
 | 출발지 | 목적지 | 
 
-/* ADJList + DFS */  
+### /* ADJList + DFS */  
 DFS(Depth_First_Search) idea  
 Color를 통해 아직 방문하지 않았으면 WHITE(0)  
 방문중일때는 GRAY(1)  
@@ -35,7 +35,7 @@ _input 형식_
 |----|----|
 |출발지|목적지|  
 
-/* DFS + Topological Sort */  
+### /* DFS + Topological Sort */  
 ** Idea **  
 Insert함수를 추가해 DFS_visit함수가 끝나는 지점에 insert해준다.  
 Insert함수는 키값을 가진 임시노드를 헤드에 추가해주는 함수임.  
