@@ -7,16 +7,16 @@ _input.txt 형식_
 1. 파일에서 읽어들인 키를 저장할 힙 배열을 글로벌 변수로 선언 ( S[100] )
 2. 파일 끝까지 키를 읽어 S배열에 저장
 3. 힙 크기를 parameter로 한 MakeHeap함수 호출
-   > 3-1. heapSize의 반 크기에서부터 1보다 작아질때까지 siftdown함수 호출
+    - heapSize의 반 크기에서부터 1보다 작아질때까지 siftdown함수 호출
   
 4. Siftdown
-  > 4-1. 불러온 인자 i에 해당하는 S[i]를 siftkey변수에 저장 
+  - 불러온 인자 i에 해당하는 S[i]를 siftkey변수에 저장 
   
-  > 4-2. parent를 i로
+  - parent를 i로
   
-  > 4-3. parent * 2가 HeapSize크기보다 커질때까지 아래를 반복
+  - parent * 2가 HeapSize크기보다 커질때까지 아래를 반복
   
-    >> 4-3-1. parent * 2 가 HeapSize보다 작고, S[parent * 2]값이 S[parent * 2 + 1]값보다 작을때, SmallerChild = parent * 2
+    -- parent * 2 가 HeapSize보다 작고, S[parent * 2]값이 S[parent * 2 + 1]값보다 작을때, SmallerChild = parent * 2
     >> 4-3-2. 위 조건에 해당없으면 SmallerChild = parent * 2 + 1    
     >> 4-3-3. siftkey값이 S[SmallerChild]값보다 클 때, S[parent]는 S[SmallerChild]이고, parent는 SmallerChild가 됨.    
     >> 4-3-4. 해당 없을 경우에는 while문 탈출.
