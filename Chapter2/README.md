@@ -17,7 +17,9 @@ _input.txt 형식_
  >> 4-3-2. 위 조건에 해당없으면 SmallerChild = parent * 2 + 1  
  >> 4-3-3. siftkey값이 S[SmallerChild]값보다 클 때, S[parent]는 S[SmallerChild]이고, parent는 SmallerChild가 됨.  
  >> 4-3-4. 해당 없을 경우에는 while문 탈출.  
+
 > 4-4. S[parent]를 siftkey로.  
+
 5. MakeHeap을 힙 크기만큼으로 수행 했을때, 결과는 S배열에 저장된다.  
 6. RemoveKeys  
  > 6-1. 1부터 heapSize까지 root함수호출 한것을 HeapSort배열에 저장  
