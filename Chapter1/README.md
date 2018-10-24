@@ -1,6 +1,6 @@
-/* Quicksort + Randomized Pivotpoint + Permutation */
+# Quicksort + Randomized Pivotpoint + Permutation
 
-/* QuickSort의 Process */
+## /* QuickSort의 Process */
 1. Set Pivotpoint.
 2. Set variable "i" to (Pivotpoint + 1) and "j" to (Pivotpoint) if the start of the data to be Sorted does not exceed end.
 3. By increasing i, determining the amount of data value in the pivotpoint, "a small number is left and a large number is right". 
@@ -8,7 +8,7 @@
 5. When "i" reaches the end number of the data, swap the value of j and pivot in data, and set the value of pivotpoint to j.
 6. End number to Pivotpoint -1, start number to Pivotpoint + 1 to resolve the partition that is divided reculsivly.
 
-/* Permutation의 Process */
+## /* Permutation의 Process */
 1. When recursively  a function, the first thing you specify is the termination condition.
 2. The termination condition of Permutation is when the right and left are equal to the right or greater than the right. -> After printed, termination.
 3. Sort the accepted string using QuickSort and print it out.
