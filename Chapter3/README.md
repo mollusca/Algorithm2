@@ -23,7 +23,7 @@ color[100] (방문여부 확인) 배열과 p[100] (부모 확인) 배열을 글�
   >> 2-3-1. temp의 목적지의 color가 WHITE일때, temp의 목적지의 부모를 u로 두고, temp의 목적지를 parameter로 __DFS_visit함수를 재귀적__ 으로 수행.  
   >> 2-3-2. temp를 다음 노드로 이동시킴.  
  
- > color를 BLACK으로 둔다.
+ > 2-4. color를 BLACK으로 둔다.
 3. DFS의 결과는 p배열에 저장됨.
 
 
