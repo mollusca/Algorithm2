@@ -1,13 +1,13 @@
 # Chapter2-1 >  Heap Sort
   
-_input.txt 형식_ 
-힙 크기
-힙 배열...
+_input.txt 형식_  
+힙 크기  
+힙 배열...  
 
 1. 파일에서 읽어들인 키를 저장할 힙 배열을 글로벌 변수로 선언 ( S[100] )
 2. 파일 끝까지 키를 읽어 S배열에 저장
 3. 힙 크기를 parameter로 한 MakeHeap함수 호출
-- heapSize의 반 크기에서부터 1보다 작아질때까지 siftdown함수 호출
+heapSize의 반 크기에서부터 1보다 작아질때까지 siftdown함수 호출
   
 4. Siftdown
 -불러온 인자 i에 해당하는 S[i]를 siftkey변수에 저장 
