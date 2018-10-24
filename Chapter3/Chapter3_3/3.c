@@ -167,7 +167,7 @@ void topologiSort() {
 
 int main() {
 	int i, j, x;
-	FILE *fp = fopen("input.txt", "r");
+	FILE *fp = fopen("input2.txt", "r");
 	FILE *fout = fopen("output.txt", "w");
 
 	fscanf(fp, "%d", &N);
@@ -212,8 +212,12 @@ int main() {
 
 	doTopo();
 	printList();
-
-
+	x = N + 1;
+	while (p[x] != 0) {
+		printf("%d ", p[x]);
+		//		fprintf(fout, "%d\n", p[x]);
+		x = p[x];
+	}printf("\n");
 	for (i = 0; i <= N; i++) {
 		frontPointer left = vertex[topo[i]];
 		for (j = i + 1; j <= N + 1; j++) {
@@ -241,10 +245,10 @@ int main() {
 //	fprintf(fout, "ºí·°°¹¼ö : %d \n", blockNum);
 
 	while (p[x] != 0) {
-		printf("%d\n", p[x]);
+		printf("%d ", p[x]);
 //		fprintf(fout, "%d\n", p[x]);
 		x = p[x];
-	}
+	}printf("\n");
 
 /*
 	for (i = 0; i <= N + 1; i++) {
