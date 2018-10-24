@@ -50,7 +50,7 @@ heapSize의 반 크기에서부터 1보다 작아질때까지 siftdown함수 호
     8-3-2. data보다 작을경우, S[child]를 data로 두고 반복문을 빠져나온다.
 
 
-﻿ Chapter2-2 >  ADJLIST
+# Chapter2-2 >  ADJLIST
 
 input형식
 노드갯수 엣지갯수
