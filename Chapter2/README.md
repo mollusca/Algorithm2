@@ -29,7 +29,7 @@ _input.txt 형식_
  > 7-1. 뽑아 낼 값은 배열의 첫번째값. 즉 S[1]. keyout변수로 저장.  
  > 7-2. 배열의 마지막 값 S[heapSize]를 S[1]에 저장.  
  > 7-3. HeapSize--  
- > 7-4. 1번부터 Siftdown함수 호출.  
+ > 7-4. 1번부터 __Siftdown__ 함수 호출.  
 8. __InsertKeys__  
  > 8-1. HeapSize++  
  > 8-2. child를 heapSize로 둔다.  
