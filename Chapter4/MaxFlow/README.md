@@ -13,5 +13,21 @@ __G__ 의 각 엣지 가중치를 Capacity라고 하며, (u,v)의 Capacity를 __
 ![1](https://github.com/mollusca/Algorithm2/blob/master/IMG/Maxflow_img/1.PNG)  
 
 __u__ 에서 __v__ 로 유량이 8이면..  
-![2](https://github.com/mollusca/Algorithm2/blob/master/IMG/Maxflow_img/2.png)
+![2](https://github.com/mollusca/Algorithm2/blob/master/IMG/Maxflow_img/2.png)  
 
+__v__ 에서 __u__ 로 유량이 3이면..  
+![3](https://github.com/mollusca/Algorithm2/blob/master/IMG/Maxflow_img/3.png)  
+
+위의 그래프를 양의 순 유량(positive net flow)으로 다시 표시하면.. (cancellation)  
+![4](https://github.com/mollusca/Algorithm2/blob/master/IMG/Maxflow_img/4.png)  
+
+_Residual network_ : __u__ 에서 __v__ 로의 _residual capacity_ __Cf(u,v)__ 는
+  __Cf(u,v) = C(u,v) - f(u,v)__
+
+예를 들어, 아래 그림의 왼쪽과 같은 유량 그래프 __G__ 가 주어졌을 때, __G__ 의 _residual network_ __Gf__ 는 아래 그림의 오른쪽과 같다.  
+__Gf__ 의 엣지는 _cancellation_ 과정을 거쳐 도출된 양의 순 유량(positive net flow)을 바탕으로 계산된다.  
+![5](https://github.com/mollusca/Algorithm2/blob/master/IMG/Maxflow_img/5.png)  
+-__Cf(u,v) = C(u,v) - f(u,v) = 9 - 4 = 5__  
+-__Cf(v,u) = C(v,u) - f(v,u) = 0 - (-4) = 4__  
+
+__argumenting path__ 란 _residual network_ __Gf__ 상에서 __s__ 에서 __t__ 로 가는 경로를 가르킨다.
