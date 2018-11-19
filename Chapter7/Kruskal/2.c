@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int N, M;
+
 void Init(int *parent, int N) {
 	int i;
 	for (i = 0; i < N; i++) {
@@ -36,8 +38,7 @@ int main() {
 	int i, cnt = 0;
 	int p, q, weight;
 	int *parent;
-	int n1, n2;
-	int N, M;
+	int n1, n2;	
 
 	char *filename = (char *)malloc(sizeof(char) * 20);
 	scanf("%s", filename);

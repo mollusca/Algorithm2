@@ -4,7 +4,7 @@
 
 int N;
 
-typedef struct info{
+typedef struct info {
 	int job;
 	int deadline;
 	int profit;
@@ -14,8 +14,8 @@ void Init(int *parent, int *schedule, int *empty) {
 	int i;
 	for (i = 1; i <= N; i++) {
 		parent[i] = -1;
-		empty[i] = i;
 		schedule[i] = 0;
+		empty[i] = i;
 	}
 }
 
@@ -36,19 +36,18 @@ void SimpleUnion(int *parent, int i, int j) {
 	parent[i] = j;
 }
 // SimpleUnion
-void Scheduling1(Info sch_info, int *parent, int *schedule, int *empty) {
-	int temp, root, empty_slot;
+void Scheduling1(Info sch_info, int *parent, int *schedule) {
+	int temp, root;
 
 	root = CollapsingFind(parent, sch_info.deadline);
-	empty_slot = empty[root];
-	schedule[empty_slot] = sch_info.job;
+	schedule[root] = sch_info.job;
 
-	if (empty_slot == 1)
+	if (root == 1)
 		temp = N;
 	else
-		temp = empty_slot - 1;
+		temp = root - 1;
 
-	SimpleUnion(parent, empty_slot, temp);
+	SimpleUnion(parent, root, temp);
 }
 
 void WeightedUnion(int *parent, int *empty, int i, int j) {
@@ -66,19 +65,19 @@ void WeightedUnion(int *parent, int *empty, int i, int j) {
 // WeightedUnion
 void Scheduling2(Info sch_info, int *parent, int *schedule, int *empty) {
 	int root1, root2;
-	int empty_slot, temp;
-	
-	root1 = CollapsingFind(parent, sch_info.deadline);
-	empty_slot = empty[root1];
-	schedule[empty_slot] = sch_info.job;
+	int temp, blank;
 
-	if (empty_slot == 1)
+	root1 = CollapsingFind(parent, sch_info.deadline);
+	blank = empty[root1];
+	schedule[blank] = sch_info.job;
+
+	if (blank == 1)
 		temp = N;
 	else
-		temp = empty_slot - 1;
-	
+		temp = blank - 1;
+
 	root2 = CollapsingFind(parent, temp);
-	
+
 	WeightedUnion(parent, empty, root1, root2);
 }
 
@@ -91,10 +90,10 @@ int main() {
 	scanf("%s", filename);
 	strcat(filename, ".txt");
 	FILE *fin = fopen(filename, "r");
-	free(filename);	
+	free(filename);
 
 	fscanf(fin, "%d", &N);
-	
+
 	parent = (int *)malloc(sizeof(int) * (N + 1));
 	schedule = (int *)malloc(sizeof(int) * (N + 1));
 	empty = (int *)malloc(sizeof(int) * (N + 1));
@@ -103,22 +102,26 @@ int main() {
 	Init(parent, schedule, empty);
 
 	for (i = 1; i <= N; i++) {
-		fscanf(fin, "%d %d %d", &sch_info.job, &sch_info.deadline, &sch_info.profit);
-		Scheduling1(sch_info, parent, schedule, empty);
-		//Scheduling2(sch_info, parent, schedule, empty);
-		
+		fscanf(fin, "%d %d %d", 
+			&sch_info.job, &sch_info.deadline, &sch_info.profit);
+
+		//Scheduling1(sch_info, parent, schedule);
+		Scheduling2(sch_info, parent, schedule, empty);
+
 		for (j = 1; j <= N; j++)
 			printf("%d ", schedule[j]);
 		printf("\n");
-		
 	}
+	/*
 	for (j = 1; j <= N; j++)
 		printf("%d ", schedule[j]);
 	printf("\n");
+	*/
 
 	free(parent);
 	free(schedule);
 	free(empty);
+
 	fclose(fin);
 	return 0;
 }
