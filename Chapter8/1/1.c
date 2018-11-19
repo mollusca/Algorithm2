@@ -24,7 +24,7 @@ void InitTree(int *tree, int *player) {
 }
 
 void binP(int *tree, int *player, int k) {
-	int root, index, big, parent;
+	int index, big, parent;
 
 	index = 1;
 
@@ -99,16 +99,16 @@ void binP(int *tree, int *player, int k) {
 
 void PrintTree(int *tree, int*player) {
 	int i;
-
-	printf("TREE : ");
+	printf("Tree : ");
 	for (i = 1; i < N; i++)
 		printf("%d ", tree[i]);
 
-	printf("\nPLAYER : ");
+	printf("\nPlayer : ");
 	for (i = 1; i <= N; i++)
 		printf("%d ", player[i]);
 	printf("\n");
 }
+
 int main() {
 	int i, k;
 	int *tree, *player;
@@ -120,7 +120,10 @@ int main() {
 	free(filename);
 
 	fscanf(fin, "%d %d %d", &binCapacity, &objSize, &N);
-	printf("%d %d %d\n", binCapacity, objSize, N);
+	printf(
+		"BinCapa : %d\n"
+		"# of Obj : %d\n"
+		"# of Player : %d\n\n", binCapacity, objSize, N);
 	
 	tree = (int *)malloc(sizeof(int) * N);
 	player = (int *)malloc(sizeof(int) * (N + 1));
@@ -132,6 +135,7 @@ int main() {
 		fscanf(fin, "%d", &k);
 
 		binP(tree, player, k);
+		printf("\n(INSERT : %d)\n", k);
 		PrintTree(tree, player);
 	}
 
