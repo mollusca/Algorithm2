@@ -46,7 +46,7 @@ void binP(int *tree, int *player, int inp) {
 			idx /= 2;
 
 			while (idx != 0) {
-				// 왼쪽 child player가 오른쪽 child보다 크면 나를 왼쪽child값으로
+				// 왼쪽 child player가 오른쪽 child보다 크면 나를 왼쪽 child값으로
 				if (player[tree[idx * 2]] >= player[tree[idx * 2 + 1]])
 					tree[idx] = tree[idx * 2];
 				else
@@ -99,7 +99,6 @@ int main() {
 
 	for (i = 0; i < objSize; i++) {
 		fscanf(fin, "%d", &inp);
-		printf("%d\n", inp);
 
 		binP(tree, player, inp);
 
