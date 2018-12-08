@@ -34,7 +34,7 @@ void RemoveCursor() {
 
 // 배경음 (BETA)
 void MusicPlay() {
-
+	PlaySound(TEXT(SOUND_FILE_NAME), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 }
 
 // 콘솔 기본 세팅 
@@ -42,5 +42,5 @@ void SetConsole() {
 	ConsoleSize();
 	RemoveScrollbar();
 	RemoveCursor();
-	// MusicPlay();
+	MusicPlay();
 }

@@ -28,7 +28,7 @@ void PrintGameBoard() {
 
 				case SBLOCK:
 					GotoXY(x + SIZE_X_ADJ, y + SIZE_Y_ADJ);
-					printf("◎");
+					printf("▥");
 					break;
 
 				case WALL:
@@ -89,7 +89,7 @@ void UIDrawer() {
 	GotoXY(21 + x, 21 + y); printf(" [   LEVEL   ]: ");
 	GotoXY(21 + x, 23 + y); printf(" [  DESTROY  ]: ");
 
-	GotoXY(x + 5, 26 + y); printf("https://github.com/mollusca");
+	GotoXY(x + 5, 26 + y); printf("https://github.com/mollusca [경북대학교 컴퓨터공학과]");
 
 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 8);
@@ -202,7 +202,7 @@ void IntroDrawer() {
 	GotoXY(x + 1, y + 22); printf("[▼] DOWN MOVE  [▲] ROTATE      [A] HOLD");
 	GotoXY(x + 1, y + 24); printf("------------------------------------------------------");
 	
-	GotoXY(x + 2, 26 + y); printf("https://github.com/mollusca");
+	GotoXY(x + 2, 26 + y); printf("https://github.com/mollusca [경북대학교 컴퓨터공학과]");
 
 	while (1) {
 		if (_kbhit()) // 입력이 있을 때 까지

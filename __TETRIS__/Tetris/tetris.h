@@ -8,6 +8,8 @@
 #include <stdlib.h>
 
 #pragma comment(lib, "winmm.lib")
+#include "Digitalv.h"
+#define SOUND_FILE_NAME "A:\\Algorithm2\\Algorithm2\\__TETRIS__\\Tetris\\Data\\TetrisBGM.wav"
 
 // 키보드 입력 매크로
 #define LEFT 75
